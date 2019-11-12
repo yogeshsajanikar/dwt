@@ -1,0 +1,41 @@
+name:                dwt
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/yogeshsajanikar/dwt#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Yogesh Sajanikar
+maintainer:          yogesh_sajanikar@yahoo.com
+copyright:           (c) Copyright 2016 All Rights Reserved
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Numeric.Wavelet
+                     , Numeric.Wavelet.Dyadic
+  build-depends:       base >= 4.7 && < 5
+                     , containers
+  default-language:    Haskell2010
+
+test-suite test
+  default-language: Haskell2010
+  type: exitcode-stdio-1.0
+  build-depends:       base >= 4.7 && < 5
+                     , tasty
+                     , tasty-hunit
+                     , tasty-quickcheck
+                     , dwt
+                     , QuickCheck
+  hs-source-dirs:      test
+  main-is: Test.hs
+  other-modules:      Numeric.Test.Wavelet
+                    , Numeric.Test.Wavelet.Dyadic
+
+
+source-repository head
+  type:     git
+  location: https://github.com/yogeshsajanikar/dwt
