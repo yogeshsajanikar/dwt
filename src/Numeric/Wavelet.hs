@@ -9,10 +9,10 @@ data Wavelet a = Wavelet { low :: Filter a, high :: Filter a, scale :: a }
 
 
 lowPass :: (Fractional a, Num a) => a -> a -> a
-lowPass x y = (x + y )
+lowPass x y = 0.5 * (x + y )
 
 highPass :: (Fractional a, Num a) => a -> a -> a
-highPass x y = (y - x)
+highPass x y = 0.5 * (y - x)
 
 transform :: Fractional a => Wavelet a -> [a] -> [a]
 transform w xs =
