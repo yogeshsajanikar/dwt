@@ -7,12 +7,14 @@ type Filter a = a -> a -> a
 
 data Wavelet a = Wavelet { low :: Filter a, high :: Filter a, scale :: a }
 
-
 lowPass :: (Fractional a, Num a) => a -> a -> a
 lowPass x y = 0.5 * (x + y )
 
 highPass :: (Fractional a, Num a) => a -> a -> a
 highPass x y = 0.5 * (y - x)
+
+haar :: Wavelet Double
+haar = Wavelet { low = lowPass, high = highPass, scale = 2**(0.5) }
 
 transform :: Fractional a => Wavelet a -> [a] -> [a]
 transform w xs =

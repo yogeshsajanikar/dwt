@@ -86,3 +86,4 @@ dyadicSequence logN =
           
 
 dotProduct xs ys = sum $ zipWith (*) xs ys
+
